@@ -58,6 +58,32 @@ fetch("https://api.example.com/items/1",{
    } 
    )
    .catch(error=> console.error('Error:',error));
+
+   fetch('https://api.example.com/login',{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body: JSON.stringify({username:'user123',password:'mypassword'})
+   })
+   .then(response => response.json())
+   .then(data => {
+    localStorage.setItem('token',data.token);
+    console.log('Login Successful:',data);
+   })
+   .catch(error=> console.error('Error:',error));
+
+   const token =localStorage.getItem('token');
+   fetch('https://api.example.com/protected-route',{
+    method:'GET',
+    header:{
+        'Authorization':`Bearer ${token}`,
+        'Content-Type':'application/json'
+    }
+   })
+   .then(response=> response.json())
+   .then(data => console.log('Protected Data:',daa))
+   .catch(error => console.error('Error:',error));
 return (
     <>
     <h1>Hello fetch!</h1>
