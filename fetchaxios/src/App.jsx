@@ -13,7 +13,7 @@ function App() {
 <nav>
   <ul>
 
-    <li>
+    <li className='list-none p-4 bg-gray-100'>
       <Link to="/axios">Axios</Link>
     </li>
     <li>
