@@ -82,7 +82,7 @@ fetch("https://api.example.com/items/1",{
     }
    })
    .then(response=> response.json())
-   .then(data => console.log('Protected Data:',daa))
+   .then(data => console.log('Protected Data:',data))
    .catch(error => console.error('Error:',error));
 return (
     <>
